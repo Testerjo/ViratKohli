@@ -1,0 +1,206 @@
+
+StringPalindrome
+----------------
+package stringInterviewPrograms;
+
+public class StringPalindrome {
+
+	public static void main(String[] args) {
+		
+		String str="madam",strRev="";		
+		
+		if(str.charAt(0)==str.charAt(str.length()-1))
+		{
+			for(int i=0;i<str.length();i++)
+			{
+				strRev=str.charAt(i)+strRev;				
+			}
+		}	
+		System.out.println("Given String is : "+str);
+	
+		if(str.equals(strRev))
+			System.out.println("Palindrome");
+		else
+			System.out.println("Not A Palindrome");
+	}
+}
+
+StringConcat
+------------
+package stringInterviewPrograms;
+
+public class StringConcat {
+
+	public static void main(String[] args) {
+		String x="abc";
+		String y="xyz";
+		x=x.concat(y);
+		System.out.println(x);
+	}
+}
+CountNumberOfWordsInSentence
+----------------------------
+package stringInterviewPrograms;
+
+public class CountNumberOfWordsInSentence {
+
+	public static void main(String[] args) {
+		String sentence="Super Man Bat Man Spider Man";
+		String[] splittedStr=sentence.split(" ");
+		System.out.println("Count of words in given Sentence is: "+splittedStr.length);
+	}
+}
+
+CountOfEachCharacters
+---------------------
+package stringInterviewPrograms;
+
+import java.util.HashMap;
+import java.util.Map.Entry;
+
+public class CountOfEachCharacters {
+
+	public static void main(String[] args) {
+		String str="hemajyothimarturu";
+		HashMap<Character, Integer> charCountMap = new HashMap<Character, Integer>();    
+
+		char[] strArray = str.toCharArray();    
+		for (char c : strArray) {
+        if (charCountMap.containsKey(c)) {            
+            charCountMap.put(c, charCountMap.get(c) + 1);
+        }
+        else {            
+            charCountMap.put(c, 1);
+        }
+    }    
+    for (Entry<Character, Integer> entry : charCountMap.entrySet()) {
+        System.out.println(entry.getKey() + " " + entry.getValue());        
+	}
+  }
+}
+
+DuplicatesFromString
+--------------------
+package stringInterviewPrograms;
+
+public class DuplicatesFromString {
+
+	public static void main(String[] args) {
+		String str="sp soft sfu ff";	
+		System.out.println(str);
+		str=str.replaceAll(" ", "");
+		
+		char[] dupChars = new char[str.length()];
+		for(int i=0;i<str.length();i++)
+		{
+			for(int j=i+1;j<str.length();j++)
+			{
+				if(str.charAt(i)==str.charAt(j) )
+				{		
+					dupChars[i]=str.charAt(i);						
+					break;				
+				}					
+			}
+		}		
+		System.out.println("Duplicate characters are : " );
+		for(int i=0;i<dupChars.length;i++) {
+			System.out.print(dupChars[i]);
+		}
+	}
+}
+DuplicateStringCount
+--------------------
+
+package stringInterviewPrograms;
+
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Map.Entry;
+
+public class DuplicateStringCount {
+
+	public static void main(String[] args) {
+		String sentence="Super Man Bat Man Spider Man";
+		String[] splittedStr=sentence.split(" ");
+		Map<String,Integer> map=new HashMap<>();
+		for(String s:splittedStr)
+		{
+			if(map.containsKey(s))
+			{
+				map.put(s, map.get(s)+1);
+			}else
+				map.put(s, 1);
+		}
+		System.out.println(map);
+		for (Entry<String, Integer> entry : map.entrySet()) {
+	        System.out.println(entry.getKey() + " " + entry.getValue());        
+		}
+	}
+
+}
+NumbersLettersSpecialCharsCountInString
+---------------------------------------
+package stringInterviewPrograms;
+
+public class NumbersLettersSpecialCharsCountInString {
+
+	public static void main(String[] args) {
+		String str="S@p3s#o5f&t";	 
+		int charCount=0,specialCharCount=0,numberCount=0;
+		for(int i=0;i<str.length();i++)
+		{
+			if(Character.isAlphabetic(str.charAt(i)))			
+				charCount++;			
+			else if(Character.isDigit(str.charAt(i)))			
+				numberCount++;
+			else
+				specialCharCount++;
+		}
+		System.out.println("charCount : " +charCount);
+		System.out.println("numberCount : " +numberCount);
+		System.out.println("specialCharCount : " +specialCharCount);
+	}
+}
+
+
+StringBufferAndBuilder
+----------------------
+package stringInterviewPrograms;
+
+public class StringBufferAndBuilder {
+
+	public static void main(String[] args) {
+		  long startTime = System.currentTimeMillis();  
+	        StringBuffer sb = new StringBuffer("Java");  
+	        for (int i=0; i<40000; i++){  
+	            sb.append("Tpoint");  
+	        }  
+	        System.out.println("Time taken by StringBuffer: " + (System.currentTimeMillis() - startTime) + "ms");  
+	        startTime = System.currentTimeMillis();  
+	        StringBuilder sb2 = new StringBuilder("Java");  
+	        for (int i=0; i<40000; i++){  
+	            sb2.append("Tpoint");  
+	        }  
+	        System.out.println("Time taken by StringBuilder: " + (System.currentTimeMillis() - startTime) + "ms");  
+
+	}
+
+}
+
+StringReverseWithStringBuilder
+------------------------------
+package stringInterviewPrograms;
+
+public class StringReverseWithStringBuilder {
+
+	public static void main(String[] args) {
+		String str="Spsoft";
+		StringBuilder string=new StringBuilder(str);
+		System.out.println("Given String is : "+string);
+		System.out.println("Reversed String is : "+string.reverse());
+	}
+}
+
+
+
+
